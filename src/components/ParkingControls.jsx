@@ -18,7 +18,7 @@ const ParkingControls = () => {
     try {
       const requestBody = {
         plateNumber: licenseNumber,
-        strategy: strategy,
+        strategyIndex: strategy,
       }
 
       const response = await park(requestBody)
@@ -45,9 +45,9 @@ const ParkingControls = () => {
           onChange={(e) => setStrategy(e.target.value)}
         >
           <option>Select Strategy</option>
-          <option value={1}>Standard</option>
-          <option value={2}>Smart</option>
-          <option value={3}>Super Smart</option>
+          <option value={0}>Standard</option>
+          <option value={1}>Smart</option>
+          <option value={2}>Super Smart</option>
         </Form.Select>
         <Button className="px-4" variant="outline-primary" id="button-addon2" onClick={handlePark}>
           Park

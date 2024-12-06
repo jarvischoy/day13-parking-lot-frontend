@@ -7,7 +7,15 @@ export const parkingReducer = (state, action) => {
     case ActionEnum.LOAD:
       return action.payload
     case ActionEnum.PARK:
-      return [...state, action.payload]
+      return state.map((parkingLot) => {
+        if (parkingLot.id === action.payload.parkingLot) {
+          return {
+            ...parkingLot,
+            tickets: [...parkingLot.tickets, action.payload],
+          }
+        }
+        return parkingLot
+      })
     case ActionEnum.FETCH:
       return state.filter((parkingLot) => parkingLot.id !== action.payload)
     default:

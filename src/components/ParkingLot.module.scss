@@ -1,0 +1,18 @@
+.parkedItem,
+.emptyItem {
+    padding: 10px;
+    font-weight: 600;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.parkedItem {
+    background-color: #ff595998;
+    color: #fff;
+
+}
+
+.emptyItem {
+    background-color: #8dff9c98;
+    color: #4f4f4f;
+}

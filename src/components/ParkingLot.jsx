@@ -1,8 +1,9 @@
 // src/components/ParkingLot.jsx
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
+import styles from './ParkingLot.module.scss'
 
-const ParkingLot = ({ name, capacity, tickets }) => {
+const ParkingLot = ({ name, capacity, tickets = [] }) => {
   const slots = Array.from({ length: capacity }, (_, i) => i + 1)
 
   return (
@@ -17,8 +18,12 @@ const ParkingLot = ({ name, capacity, tickets }) => {
               {slots.slice(index * 3, index * 3 + 3).map((slot) => {
                 const ticket = tickets.find(ticket => ticket.position === slot)
                 return (
-                  <Col key={slot} className="border p-2">
-                    {ticket ? `${ticket.plateNumber}` : `Slot ${slot}`}
+                  <Col key={slot} className="border p-0">
+                    {
+                      ticket ?
+                        <div className={styles.parkedItem}>{ticket.plateNumber}</div> :
+                        <div className={styles.emptyItem}>Slot {slot}</div>
+                    }
                   </Col>
                 )
               })}

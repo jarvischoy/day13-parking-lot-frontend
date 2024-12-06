@@ -8,6 +8,6 @@ export const park = (car) => {
   return client.post("/parking-lot/park", car)
 }
 
-export const fetch = (ticket) => {
+export const fetchCar = (ticket) => {
   return client.post("/parking-lot/fetch", ticket)
 }
